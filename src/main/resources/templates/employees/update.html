@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/header :: head_fragment(title=従業員更新)"></head>
+
+<body class="h-100 overflow-hidden">
+    <div class="row h-100">
+        <div class="h-100 p-3 mb-2 bg-dark text-white col-sm-2">
+            <nav th:replace="common/side :: copy"></nav>
+        </div>
+        <div class="mt-3 h-100 col-sm-10">
+            <!-- コンテンツ -->
+            <div class="container-fluid p-0">
+                <h1 class="h3 mb-3">従業員 更新</h1>
+
+                <div class="row">
+                    <div class="col-xl-11">
+                        <div class="card">
+                            <div class="card-body">
+                                <form th:action="@{'/employees/' + ${employee.code} + '/update'}" method="post">
+                                    <table class="table table-bordered w-50">
+                                        <tr>
+                                            <th>社員番号</th>
+                                            <td>
+                                                <input type="text" id="code" name="code" th:value="${employee.code}" class="form-control" readonly />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>氏名</th>
+                                            <td>
+                                                <input type="text" id="name" name="name" th:value="${employee.name}" class="form-control" required />
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th>パスワード</th>
+                                            <td>
+                                                <input type="password" id="password" name="password" class="form-control" required />
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="mt-3">
+                                        <button type="submit" class="btn btn-success">更新</button>
+                                        <a th:href="@{/employees}" class="btn btn-secondary">一覧へ戻る</a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+

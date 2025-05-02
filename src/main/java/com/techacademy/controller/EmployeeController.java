@@ -48,6 +48,7 @@ public class EmployeeController {
             return "error"; // エラーページを表示
         }
 
+
         model.addAttribute("employee", employee);
         return "employees/detail";
     }

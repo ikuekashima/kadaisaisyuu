@@ -77,7 +77,7 @@ public class EmployeeController {
         }
 
         try {
-            ErrorKinds saveResult = employeeService.update(employee);
+            ErrorKinds saveResult = employeeService.register(employee);
             if (saveResult != ErrorKinds.SUCCESS) {
                 model.addAttribute("errorMessage", "登録処理中にエラーが発生しました");
                 return create(model);
